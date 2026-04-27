@@ -17,7 +17,7 @@ function atualizarBarra() {
 function abrirModal() {
     document.getElementById('modal-checkout').style.display = 'flex';
     const lista = document.getElementById('lista-itens-checkout');
-    lista.innerHTML = carrinho.map(item => `<p>${item.nome} - R$ ${item.preco.toFixed(2)}</p>`).join('');
+    lista.innerHTML = carrinho.map(item => `<p style="font-size:14px; margin-bottom:5px;">${item.nome} - R$ ${item.preco.toFixed(2)}</p>`).join('');
 }
 
 function fecharModal() {
@@ -29,17 +29,15 @@ function enviarWhatsApp() {
     const rua = document.getElementById('rua-cliente').value;
     const bairro = document.getElementById('bairro-cliente').value;
 
-    if(!nome || !rua) { alert("Preencha o nome e endereço!"); return; }
+    if(!nome || !rua || !bairro) { alert("Preencha todos os campos!"); return; }
 
     let mensagem = `*Novo Pedido - Doces da Bah*\n\n`;
-    mensagem += `*Cliente:* ${nome}\n`;
-    mensagem += `*Endereço:* ${rua}, ${bairro}\n\n`;
-    mensagem += `*Itens:*\n`;
-    carrinho.forEach(item => {
-        mensagem += `- ${item.nome} (R$ ${item.preco.toFixed(2)})\n`;
-    });
-    mensagem += `\n*Total: R$ ${total.toFixed(2)}*`;
+    mensagem += `👤 *Cliente:* ${nome}\n`;
+    mensagem += `📍 *Endereço:* ${rua}, ${bairro}\n\n`;
+    mensagem += `🛒 *Itens:*\n`;
+    carrinho.forEach(item => { mensagem += `• ${item.nome} (R$ ${item.preco.toFixed(2)})\n`; });
+    mensagem += `\n*Total: R$ ${total.toFixed(2).replace('.', ',')}*`;
 
-    const fone = "55XXXXXXXXXXX"; // COLOQUE O WHATSAPP DA CLIENTE AQUI
+    const fone = "5538999999999"; // Substitua pelo número real dela
     window.open(`https://wa.me/${fone}?text=${encodeURIComponent(mensagem)}`);
 }
