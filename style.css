@@ -1,30 +1,143 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+/* Importando fontes de qualidade */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap');
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-body { background: #fff; color: #333; padding-bottom: 100px; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-header { padding: 25px; text-align: center; border-bottom: 1px solid #f0f0f0; }
-.logo { font-size: 24px; font-weight: 600; color: #d63384; }
+body {
+    background-color: #fcfcfc; /* Branco levemente acinzentado para destacar os cards */
+    color: #333;
+    padding-bottom: 100px;
+}
 
-.container { padding: 20px; max-width: 900px; margin: auto; }
-.categoria-titulo { margin: 30px 0 15px; border-left: 4px solid #ff69b4; padding-left: 10px; }
-.categoria-titulo h2 { font-size: 20px; }
+/* Header mais elegante */
+header {
+    background: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
 
-.container-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: #d63384;
+}
 
-.produto-card { border: 1px solid #eee; border-radius: 15px; padding: 12px; text-align: center; background: #fff; }
-.produto-card img { width: 100%; border-radius: 10px; margin-bottom: 10px; }
-.produto-card h3 { font-size: 14px; margin-bottom: 5px; }
-.produto-card p { font-size: 11px; color: #777; margin-bottom: 10px; }
-.preco { display: block; color: #d63384; font-weight: 600; margin-bottom: 10px; }
+.container {
+    padding: 15px;
+    max-width: 500px; /* Focado em Mobile */
+    margin: 0 auto;
+}
 
-.btn-adicionar { width: 100%; background: #ff69b4; color: #fff; border: none; padding: 8px; border-radius: 8px; cursor: pointer; font-size: 13px; }
+/* Títulos das Categorias */
+.categoria-titulo {
+    margin: 30px 0 15px;
+    padding-left: 10px;
+}
 
-.carrinho-fixo { position: fixed; bottom: 20px; left: 5%; width: 90%; background: #ff69b4; color: #fff; padding: 15px; border-radius: 15px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-.btn-ver-sacola { background: #fff; color: #ff69b4; border: none; padding: 8px 12px; border-radius: 8px; font-weight: 600; }
+.categoria-titulo h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: #444;
+    position: relative;
+}
 
-.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 10; justify-content: center; align-items: center; }
-.modal-content { background: #fff; padding: 20px; width: 85%; border-radius: 20px; }
-.modal-content input { width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ddd; border-radius: 8px; }
-.btn-finalizar { width: 100%; background: #25d366; color: #fff; border: none; padding: 12px; border-radius: 8px; margin-top: 10px; font-weight: 600; }
-.btn-fechar { width: 100%; background: none; border: none; padding: 10px; color: #888; }
+/* O CARD - Aqui está o segredo do visual Figma */
+.container-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.produto-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    border: 1px solid #f0f0f0;
+    transition: transform 0.2s;
+}
+
+/* Ajuste da Imagem para não ficar esticada */
+.produto-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover; /* Faz a foto preencher o espaço sem distorcer */
+    display: block;
+}
+
+.card-info {
+    padding: 15px;
+    text-align: left;
+}
+
+.card-info h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #222;
+}
+
+.card-info p {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.preco {
+    font-size: 18px;
+    font-weight: 600;
+    color: #d63384;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.btn-adicionar {
+    width: 100%;
+    background: #ff69b4;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-adicionar:active {
+    background: #d63384;
+    transform: scale(0.98);
+}
+
+/* Sacola Flutuante */
+.carrinho-fixo {
+    position: fixed;
+    bottom: 20px;
+    left: 15px;
+    right: 15px;
+    background: #d63384;
+    color: white;
+    padding: 18px;
+    border-radius: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(214, 51, 132, 0.4);
+}
+
+.btn-ver-sacola {
+    background: #fff;
+    color: #d63384;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 10px;
+    font-weight: bold;
+}
