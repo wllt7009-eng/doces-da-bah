@@ -1,1 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doces da Bah - Bolos e Doces Artesanais</title>
+    <link rel="stylesheet" href="css/style.css">
+    </head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">Doces da Bah</div>
+            <ul>
+                <li><a href="#catalogo">Catálogo</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#pedido" class="btn-pedido">Monte seu Pedido</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+      <section id="catalogo" class="produtos">
+    <h2>Nosso Cardápio</h2>
+    
+    <div class="container-grid">
+        <div class="produto-card">
+            <img src="img/fatia-brownie-ninho.jpg" alt="Fatia Brownie Ninho">
+            <h3>Fatia Brownie Ninho c/ Nutella</h3>
+            <p class="descricao">Cobertura de branquinho cremoso, Nutella e brigadeiro de Ninho.</p>
+            <span class="preco">R$ 24,90</span>
+            <button class="btn-adicionar" onclick="adicionarAoCarrinho('Fatia Brownie Ninho', 24.90)">
+                Adicionar +
+            </button>
+        </div>
+
+        <div class="produto-card">
+            <img src="img/coca-cola.jpg" alt="Coca Cola">
+            <h3>Coca-Cola 350ml</h3>
+            <p class="descricao">Geladinha para acompanhar seu doce.</p>
+            <span class="preco">R$ 8,00</span>
+            <button class="btn-adicionar" onclick="adicionarAoCarrinho('Coca-Cola', 8.00)">
+                Adicionar +
+            </button>
+        </div>
+    </div>
+      </section>
+      
+        <div class="hero-content">
+            <h1>Doces que encantam no sabor e no olhar</h1>
+            <p>Bolos, doces e encomendas especiais</p>
+            <a href="https://wa.me/SEUNUMERO" class="btn-cta">Fazer Pedido no WhatsApp</a>
+        </div>
+    </section>
+
+    <a href="https://wa.me/SEUNUMERO" class="whatsapp-float" target="_blank">
+        <img src="img/whatsapp-icon.png" alt="WhatsApp">
+    </a>
+
+</body>
+</html>
 
