@@ -3,60 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doces da Bah - Bolos e Doces Artesanais</title>
+    <title>Doces da Bah | Cardápio Digital</title>
     <link rel="stylesheet" href="css/style.css">
-    </head>
+</head>
 <body>
 
     <header>
+        <div class="logo">Doces da Bah</div>
         <nav>
-            <div class="logo">Doces da Bah</div>
             <ul>
-                <li><a href="#catalogo">Catálogo</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#pedido" class="btn-pedido">Monte seu Pedido</a></li>
+                <li><a href="#doces">Doces</a></li>
+                <li><a href="#acai">Açaí</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero">
-      <section id="catalogo" class="produtos">
-    <h2>Nosso Cardápio</h2>
-    
-    <div class="container-grid">
-        <div class="produto-card">
-            <img src="img/fatia-brownie-ninho.jpg" alt="Fatia Brownie Ninho">
-            <h3>Fatia Brownie Ninho c/ Nutella</h3>
-            <p class="descricao">Cobertura de branquinho cremoso, Nutella e brigadeiro de Ninho.</p>
-            <span class="preco">R$ 24,90</span>
-            <button class="btn-adicionar" onclick="adicionarAoCarrinho('Fatia Brownie Ninho', 24.90)">
-                Adicionar +
-            </button>
-        </div>
+    <main class="container">
+        <section id="doces" class="produtos">
+            <div class="categoria-titulo"><h2>Fatias de Brownie</h2></div>
+            <div class="container-grid">
+                <div class="produto-card">
+                    <img src="img/fatia-ninho.jpg" alt="Fatia Ninho">
+                    <h3>Brownie Ninho com Nutella</h3>
+                    <p>Brownie molhadinho com muito Ninho e Nutella.</p>
+                    <span class="preco">R$ 24,90</span>
+                    <button class="btn-adicionar" onclick="adicionarAoCarrinho('Brownie Ninho/Nutella', 24.90)">Adicionar +</button>
+                </div>
+                <div class="produto-card">
+                    <img src="img/fatia-kinder.jpg" alt="Fatia Kinder">
+                    <h3>Brownie Kinder Bueno</h3>
+                    <p>Creme artesanal e Kinder Bueno original.</p>
+                    <span class="preco">R$ 24,90</span>
+                    <button class="btn-adicionar" onclick="adicionarAoCarrinho('Brownie Kinder Bueno', 24.90)">Adicionar +</button>
+                </div>
+            </div>
 
-        <div class="produto-card">
-            <img src="img/coca-cola.jpg" alt="Coca Cola">
-            <h3>Coca-Cola 350ml</h3>
-            <p class="descricao">Geladinha para acompanhar seu doce.</p>
-            <span class="preco">R$ 8,00</span>
-            <button class="btn-adicionar" onclick="adicionarAoCarrinho('Coca-Cola', 8.00)">
-                Adicionar +
-            </button>
+            <div class="categoria-titulo"><h2>Copos da Felicidade</h2></div>
+            <div class="container-grid">
+                <div class="produto-card">
+                    <img src="img/copo-ninho.jpg" alt="Copo Ninho">
+                    <h3>Copo Ninho/Nutella 300ml</h3>
+                    <p>Camadas generosas de creme de Ninho e Nutella.</p>
+                    <span class="preco">R$ 22,00</span>
+                    <button class="btn-adicionar" onclick="adicionarAoCarrinho('Copo Ninho 300ml', 22.00)">Adicionar +</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="acai" class="produtos">
+            <div class="categoria-titulo"><h2>Cremes de Açaí</h2></div>
+            <div class="container-grid">
+                <div class="produto-card">
+                    <img src="img/acai-300.jpg" alt="Açaí 300">
+                    <h3>Açaí 300ml</h3>
+                    <p>Puro e cremoso. Escolha seus adicionais.</p>
+                    <span class="preco">R$ 13,00</span>
+                    <button class="btn-adicionar" onclick="adicionarAoCarrinho('Açaí 300ml', 13.00)">Adicionar +</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="barra-carrinho" class="carrinho-fixo" style="display: none;">
+        <div class="info-carrinho">
+            <span id="qtd-itens">0 itens</span>
+            <span id="total-pedido">Total: R$ 0,00</span>
+        </div>
+        <button class="btn-ver-sacola" onclick="abrirModal()">Ver Sacola</button>
+    </div>
+
+    <div id="modal-checkout" class="modal">
+        <div class="modal-content">
+            <h3>Finalizar Pedido</h3>
+            <div id="lista-itens-checkout"></div>
+            <hr>
+            <input type="text" id="nome-cliente" placeholder="Seu Nome">
+            <input type="text" id="rua-cliente" placeholder="Rua e Número">
+            <input type="text" id="bairro-cliente" placeholder="Bairro">
+            <button class="btn-finalizar" onclick="enviarWhatsApp()">Enviar para WhatsApp</button>
+            <button class="btn-fechar" onclick="fecharModal()">Voltar</button>
         </div>
     </div>
-      </section>
-      
-        <div class="hero-content">
-            <h1>Doces que encantam no sabor e no olhar</h1>
-            <p>Bolos, doces e encomendas especiais</p>
-            <a href="https://wa.me/SEUNUMERO" class="btn-cta">Fazer Pedido no WhatsApp</a>
-        </div>
-    </section>
 
-    <a href="https://wa.me/SEUNUMERO" class="whatsapp-float" target="_blank">
-        <img src="img/whatsapp-icon.png" alt="WhatsApp">
-    </a>
-
+    <script src="js/script.js"></script>
 </body>
 </html>
-
