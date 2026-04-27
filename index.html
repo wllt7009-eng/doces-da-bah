@@ -19,22 +19,23 @@
     </header>
 
     <main class="container">
+        
         <section id="doces" class="produtos">
             <div class="categoria-titulo"><h2>Fatias de Brownie</h2></div>
             <div class="container-grid">
                 <div class="produto-card">
                     <img src="img/fatia-ninho.jpg" alt="Fatia Ninho">
-                    <h3>Brownie Ninho com Nutella</h3>
-                    <p>Brownie molhadinho com muito Ninho e Nutella.</p>
+                    <h3>Fatia Brownie Ninho com Nutella</h3>
+                    <p>Massa molhadinha com muito Ninho e Nutella pura.</p>
                     <span class="preco">R$ 24,90</span>
-                    <button class="btn-adicionar" onclick="adicionarAoCarrinho('Brownie Ninho/Nutella', 24.90)">Adicionar +</button>
+                    <button class="btn-adicionar" onclick="adicionarAoCarrinho('Fatia Brownie Ninho/Nutella', 24.90)">Adicionar +</button>
                 </div>
                 <div class="produto-card">
                     <img src="img/fatia-kinder.jpg" alt="Fatia Kinder">
-                    <h3>Brownie Kinder Bueno</h3>
-                    <p>Creme artesanal e Kinder Bueno original.</p>
+                    <h3>Fatia Brownie Kinder Bueno</h3>
+                    <p>Creme artesanal Bah e Kinder Bueno original.</p>
                     <span class="preco">R$ 24,90</span>
-                    <button class="btn-adicionar" onclick="adicionarAoCarrinho('Brownie Kinder Bueno', 24.90)">Adicionar +</button>
+                    <button class="btn-adicionar" onclick="adicionarAoCarrinho('Fatia Brownie Kinder Bueno', 24.90)">Adicionar +</button>
                 </div>
             </div>
 
@@ -43,9 +44,14 @@
                 <div class="produto-card">
                     <img src="img/copo-ninho.jpg" alt="Copo Ninho">
                     <h3>Copo Ninho/Nutella 300ml</h3>
-                    <p>Camadas generosas de creme de Ninho e Nutella.</p>
                     <span class="preco">R$ 22,00</span>
                     <button class="btn-adicionar" onclick="adicionarAoCarrinho('Copo Ninho 300ml', 22.00)">Adicionar +</button>
+                </div>
+                <div class="produto-card">
+                    <img src="img/copo-ouro-branco.jpg" alt="Copo Ouro Branco">
+                    <h3>Copo Ouro Branco 300ml</h3>
+                    <span class="preco">R$ 22,00</span>
+                    <button class="btn-adicionar" onclick="adicionarAoCarrinho('Copo Ouro Branco 300ml', 22.00)">Adicionar +</button>
                 </div>
             </div>
         </section>
@@ -54,11 +60,41 @@
             <div class="categoria-titulo"><h2>Cremes de Açaí</h2></div>
             <div class="container-grid">
                 <div class="produto-card">
-                    <img src="img/acai-300.jpg" alt="Açaí 300">
+                    <img src="img/acai-300.jpg" alt="Açaí 300ml">
                     <h3>Açaí 300ml</h3>
-                    <p>Puro e cremoso. Escolha seus adicionais.</p>
                     <span class="preco">R$ 13,00</span>
                     <button class="btn-adicionar" onclick="adicionarAoCarrinho('Açaí 300ml', 13.00)">Adicionar +</button>
+                </div>
+                <div class="produto-card">
+                    <img src="img/acai-400.jpg" alt="Açaí 400ml">
+                    <h3>Açaí 400ml</h3>
+                    <span class="preco">R$ 15,00</span>
+                    <button class="btn-adicionar" onclick="adicionarAoCarrinho('Açaí 400ml', 15.00)">Adicionar +</button>
+                </div>
+                <div class="produto-card">
+                    <img src="img/acai-500.jpg" alt="Açaí 500ml">
+                    <h3>Açaí 500ml</h3>
+                    <span class="preco">R$ 18,00</span>
+                    <button class="btn-adicionar" onclick="adicionarAoCarrinho('Açaí 500ml', 18.00)">Adicionar +</button>
+                </div>
+            </div>
+
+            <div class="categoria-titulo"><h2>Adicionais para Açaí</h2></div>
+            <div class="container-grid">
+                <div class="produto-card adicional">
+                    <h3>Simples (R$ 2,00)</h3>
+                    <p>Leite em pó, Granola, Paçoca, Chocoball, Amendoim ou Granulado.</p>
+                    <button class="btn-adicionar" onclick="adicionarAoCarrinho('Adicional Simples', 2.00)">Adicionar R$ 2,00</button>
+                </div>
+                <div class="produto-card adicional">
+                    <h3>Frutas/Caldas (R$ 3,00)</h3>
+                    <p>Morango, Banana, Kiwi ou Leite Condensado.</p>
+                    <button class="btn-adicionar" onclick="adicionarAoCarrinho('Adicional Fruta/Calda', 3.00)">Adicionar R$ 3,00</button>
+                </div>
+                <div class="produto-card adicional">
+                    <h3>Especiais (R$ 4,00)</h3>
+                    <p>Creme de Ninho, Nutella ou Gotas de Chocolate.</p>
+                    <button class="btn-adicionar" onclick="adicionarAoCarrinho('Adicional Especial', 4.00)">Adicionar R$ 4,00</button>
                 </div>
             </div>
         </section>
@@ -75,11 +111,13 @@
     <div id="modal-checkout" class="modal">
         <div class="modal-content">
             <h3>Finalizar Pedido</h3>
-            <div id="lista-itens-checkout"></div>
+            <div id="lista-itens-checkout" class="lista-itens"></div>
             <hr>
-            <input type="text" id="nome-cliente" placeholder="Seu Nome">
-            <input type="text" id="rua-cliente" placeholder="Rua e Número">
-            <input type="text" id="bairro-cliente" placeholder="Bairro">
+            <div class="form-entrega">
+                <input type="text" id="nome-cliente" placeholder="Seu Nome">
+                <input type="text" id="rua-cliente" placeholder="Rua e Número">
+                <input type="text" id="bairro-cliente" placeholder="Bairro">
+            </div>
             <button class="btn-finalizar" onclick="enviarWhatsApp()">Enviar para WhatsApp</button>
             <button class="btn-fechar" onclick="fecharModal()">Voltar</button>
         </div>
